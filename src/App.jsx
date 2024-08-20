@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { User } from './Components/User';
+import { SongsList } from './Components/SongsList';
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
           <div className="flex flex-col w-2/12 justify-between h-full">
           <User/>
           </div>
-          <div className="w-4/12 bg-gray-300">3</div>
+          <div className="flex flex-col w-4/12 bg-gray-300 h-full">
+          <SongsList/>
+          </div>
           <div className="w-6/12 bg-gray-400">4</div>
         </div>
       </div>
