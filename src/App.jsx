@@ -17,7 +17,7 @@ function App() {
           <div className="flex flex-col w-4/12 h-full">
           <SongsList/>
           </div>
-          <div className="w-6/12">
+          <div className="flex flex-col w-6/12 h-full">
           <MusicPlayer/>
           </div>
         </div>

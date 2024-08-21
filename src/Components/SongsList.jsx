@@ -80,7 +80,7 @@ export const SongsList = () => {
           className={`tracking-wide ${
             activeTab === "For You"
               ? "text-white"
-              : "text-gray-500 bg-transparent"
+              : "text-gray-300 bg-transparent"
           }`}
           onClick={() => handleTabClick("For You")}
         >
@@ -90,7 +90,7 @@ export const SongsList = () => {
           className={`tracking-wide ${
             activeTab === "Top Tracks"
               ? "text-white"
-              : "text-gray-500 bg-transparent"
+              : "text-gray-300 bg-transparent"
           }`}
           onClick={() => handleTabClick("Top Tracks")}
         >
@@ -107,7 +107,7 @@ export const SongsList = () => {
         />
         <CiSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500" />
       </div>
-      <div className="flex flex-col gap-0.5">
+      <div className="flex flex-col gap-0.5 mt-2">
         {filteredSongs.length > 0 ? (
           filteredSongs.map((song) => (
             <SongItem
