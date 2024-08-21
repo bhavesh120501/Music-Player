@@ -10,7 +10,6 @@ export const MusicPlayer = () => {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
-    const [manualChange, setManualChange] = useState(false); // Track manual changes to the slider
     const seekerRef = useRef(null);
 
     const handlePlayPause = () => {
@@ -41,25 +40,21 @@ export const MusicPlayer = () => {
     const handleSeekerChange = (e) => {
         const newTime = e.target.value;
         setCurrentTime(newTime);
-        setManualChange(true);
     };
 
     useEffect(() => {
-        if (isPlaying && !manualChange) {
+        if (isPlaying) {
             const interval = setInterval(() => {
                 setCurrentTime((prevTime) => prevTime + 1);
             }, 1000);
             return () => clearInterval(interval);
-        } else if (manualChange) {
-            setManualChange(false); // Reset after manual adjustment
-        }
-    }, [isPlaying, manualChange]);
+        } 
+    }, [isPlaying]);
 
     useEffect(() => {
         if (selectedSong) {
             setCurrentTime(0);
             setIsPlaying(false);
-
             // Change the background color based on the selected song
             document.body.style.backgroundColor = selectedSong.accentColor;
         }
