@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CiSearch } from "react-icons/ci";
+import { SongItem } from './SongItem';
 
 export const SongsList = () => {
   const [songs, setSongs] = useState([]);
@@ -74,14 +75,22 @@ export const SongsList = () => {
     <div className="flex flex-col h-full p-5 gap-4">
       <div className="flex gap-10 text-xl font-semibold items-center">
         <button
-          className={`tracking-wide ${activeTab === 'For You' ? 'text-white' : 'text-gray-500 bg-transparent'}`}
-          onClick={() => handleTabClick('For You')}
+          className={`tracking-wide ${
+            activeTab === "For You"
+              ? "text-white"
+              : "text-gray-500 bg-transparent"
+          }`}
+          onClick={() => handleTabClick("For You")}
         >
           For You
         </button>
         <button
-          className={`tracking-wide ${activeTab === 'Top Tracks' ? 'text-white' : 'text-gray-500 bg-transparent'}`}
-          onClick={() => handleTabClick('Top Tracks')}
+          className={`tracking-wide ${
+            activeTab === "Top Tracks"
+              ? "text-white"
+              : "text-gray-500 bg-transparent"
+          }`}
+          onClick={() => handleTabClick("Top Tracks")}
         >
           Top Tracks
         </button>
@@ -99,26 +108,13 @@ export const SongsList = () => {
       <div className="flex flex-col gap-0.5">
         {filteredSongs.length > 0 ? (
           filteredSongs.map((song) => (
-            <div
+            <SongItem
               key={song.id}
-              className={`flex justify-between items-center p-2 ${selectedSongId === song.id ? 'bg-neutral-400 rounded-md' : ''}`}
-              onClick={() => handleSongClick(song)}
-            >
-              <div className="flex items-center gap-4">
-                <img
-                  src={`https://cms.samespace.com/assets/${song.cover}`}
-                  alt={song.name}
-                  className="w-10 h-10 rounded-full"
-                />
-                <div className="flex flex-col text-left">
-                  <span className="font-normal text-white">{song.name}</span>
-                  <span className="text-xs text-gray-300">{song.artist}</span>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <span className="text-sm text-gray-500 text-white">{formatDuration(song.url)}</span>
-              </div>
-            </div>
+              song={song}
+              selectedSongId={selectedSongId}
+              handleSongClick={handleSongClick}
+              formatDuration={formatDuration}
+            />
           ))
         ) : (
           <div className='text-white'>No songs found...</div>
