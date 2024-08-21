@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CiSearch } from "react-icons/ci";
 import { SongItem } from './SongItem';
+import { SongsContext } from './Context/GlobalContext';
 
 export const SongsList = () => {
-  const [songs, setSongs] = useState([]);
-  const [filteredSongs, setFilteredSongs] = useState([]);
+  // const [songs, setSongs] = useState([]);
+  const {songs,setSongs,filteredSongs,setFilteredSongs,selectedSongId,setSelectedSongId,activeTab,setActiveTab} = useContext(SongsContext);
+  // const [filteredSongs, setFilteredSongs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSongId, setSelectedSongId] = useState(1); 
+  // const [selectedSongId, setSelectedSongId] = useState(1); 
   const [accentColor, setAccentColor] = useState('#FFFFFF'); 
-  const [activeTab, setActiveTab] = useState('For You'); 
+  // const [activeTab, setActiveTab] = useState('For You'); 
 
   useEffect(() => {
     // Fetch songs from the API

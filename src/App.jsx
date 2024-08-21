@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { User } from './Components/User';
 import { SongsList } from './Components/SongsList';
+import { MusicPlayer } from './Components/MusicPlayer';
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <div className="flex flex-col w-4/12 h-full">
           <SongsList/>
           </div>
-          <div className="w-6/12">4</div>
+          <div className="w-6/12">
+          <MusicPlayer/>
+          </div>
         </div>
       </div>
     </>
