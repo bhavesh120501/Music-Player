@@ -1,0 +1,25 @@
+/* Custom slider styling */
+.custom-slider {
+    -webkit-appearance: none; /* Remove default appearance */
+    height: 8px; /* Track height */
+    background-color: #6a6c70; /* Background color */
+    border-radius: 4px; /* Track rounded corners */
+    outline: none; /* Remove focus outline */
+}
+
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default appearance */
+    width: 12px; /* Thumb size */
+    height: 12px; /* Thumb size */
+    background-color: #000; /* Thumb color */
+    border-radius: 50%; /* Thumb rounded */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.custom-slider::-moz-range-thumb {
+    width: 12px; /* Thumb size */
+    height: 12px; /* Thumb size */
+    background-color: #000; /* Thumb color */
+    border-radius: 50%; /* Thumb rounded */
+    cursor: pointer; /* Cursor on hover */
+}

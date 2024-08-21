@@ -5,11 +5,10 @@ import { SongsContext } from './Context/GlobalContext';
 
 export const SongsList = () => {
   // const [songs, setSongs] = useState([]);
-  const {songs,setSongs,filteredSongs,setFilteredSongs,selectedSongId,setSelectedSongId,activeTab,setActiveTab} = useContext(SongsContext);
+  const {songs,setSongs,filteredSongs,setFilteredSongs,selectedSongId,setSelectedSongId,activeTab,setActiveTab,accentColor,setAccentColor} = useContext(SongsContext);
   // const [filteredSongs, setFilteredSongs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   // const [selectedSongId, setSelectedSongId] = useState(1); 
-  const [accentColor, setAccentColor] = useState('#FFFFFF'); 
   // const [activeTab, setActiveTab] = useState('For You'); 
 
   useEffect(() => {
@@ -69,10 +68,18 @@ export const SongsList = () => {
     ));
   };
 
-  const formatDuration = (url) => {
-    return '3:45';
+  const generateRandomDuration = () => {
+    // Generate a random duration between 1:00 and 5:00
+    const minutes = Math.floor(Math.random() * 5) + 1; // Random minutes between 1 and 5
+    const seconds = Math.floor(Math.random() * 60);    // Random seconds between 0 and 59
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`; // Format as MM:SS
   };
-
+  
+  const formatDuration = (songId) => {
+    // Generate and return a random duration for each song
+    return generateRandomDuration();
+  };
+  
   return (
     <div className="flex flex-col h-full p-5 gap-4">
       <div className="flex gap-10 text-xl font-semibold items-center">
@@ -115,8 +122,7 @@ export const SongsList = () => {
               song={song}
               selectedSongId={selectedSongId}
               handleSongClick={handleSongClick}
-              formatDuration={formatDuration}
-            />
+              formatDuration={() => formatDuration(song.id)}            />
           ))
         ) : (
           <div className='text-white'>No songs found...</div>
