@@ -23,3 +23,9 @@
     border-radius: 50%; /* Thumb rounded */
     cursor: pointer; /* Cursor on hover */
 }
+
+@media (max-width: 768px) {
+    .custom-slider {
+      width: 100%;
+    }
+}

@@ -77,7 +77,7 @@ export const SongsList = () => {
   };
   
   return (
-    <div className="flex flex-col h-full md:mt-5 md:gap-1 lg:gap-5 lg:p-4 lg:mt-1">
+    <div className="flex flex-col h-full mt-2 md:mt-5 gap-2 md:gap-1 lg:gap-5 lg:p-4 lg:mt-1">
       <div className="flex gap-10 md:text-lg md:font-medium	lg:text-xl lg:font-semibold items-center">
         <button
           className={`md:tracking-normal lg:tracking-wide ${

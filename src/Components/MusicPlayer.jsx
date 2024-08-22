@@ -74,7 +74,7 @@ export const MusicPlayer = () => {
                         <img
                             src={`https://cms.samespace.com/assets/${selectedSong.cover}`}
                             alt={selectedSong.name}
-                            className="rounded-lg w-96 md:h-64 lg:h-80 object-cover"
+                            className="rounded-lg w-full h-80 md:w-96 md:h-64 lg:h-80 object-cover"
                         />
                     </div>
 
@@ -86,11 +86,11 @@ export const MusicPlayer = () => {
                         max="100"
                         value={currentTime}
                         onChange={handleSeekerChange}
-                        className="lg:w-96 md:w-80 md:mt-4 lg:mt-4 custom-slider"
+                        className="lg:w-96 md:w-80 mt-6 md:mt-4 lg:mt-4 custom-slider"
                     />
 
                     {/* Controls */}
-                    <div className="flex items-center justify-between md:mt-2 lg:mt-2 md:w-80 lg:w-96">
+                    <div className="flex items-center justify-between mt-4 md:mt-2 lg:mt-2 md:w-80 lg:w-96">
                         <div className="bg-neutral-600 p-2 rounded-full cursor-pointer hover:bg-neutral-500">
                             <FaEllipsisH className="text-white" />
                         </div>
