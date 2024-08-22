@@ -1,7 +1,7 @@
 /* Custom slider styling */
 .custom-slider {
     -webkit-appearance: none; /* Remove default appearance */
-    height: 8px; /* Track height */
+    height: 6px; /* Track height */
     background-color: #6a6c70; /* Background color */
     border-radius: 4px; /* Track rounded corners */
     outline: none; /* Remove focus outline */

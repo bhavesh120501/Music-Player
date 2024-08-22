@@ -4,7 +4,7 @@ export const SongItem = ({song, selectedSongId, handleSongClick, formatDuration}
   return (
     <div
       key={song.id}
-      className={`flex justify-between items-center p-2 ${
+      className={`flex justify-between items-center md:p-[5.7px] lg:p-2 ${
         selectedSongId === song.id ? "bg-neutral-600 rounded-md" : ""
       }`}
       onClick={() => handleSongClick(song)}

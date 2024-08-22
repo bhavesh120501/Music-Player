@@ -5,7 +5,7 @@ import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from "react-icons/tb
 import './MusicPlayer.css';
 
 export const MusicPlayer = () => {
-    const { songs, selectedSongId, setSelectedSongId,accentColor,setAccentColor } = useContext(SongsContext);
+    const { songs, selectedSongId, setSelectedSongId,accentColor,setAccentColor,filteredSongs,setFilteredSongs } = useContext(SongsContext);
     const selectedSong = songs.find((song) => song.id === selectedSongId);
 
     const [isPlaying, setIsPlaying] = useState(false);
@@ -17,23 +17,23 @@ export const MusicPlayer = () => {
     };
 
     const handleNextSong = () => {
-        const currentIndex = songs.findIndex((song) => song.id === selectedSongId);
-        const nextIndex = (currentIndex + 1) % songs.length;
-        setSelectedSongId(songs[nextIndex].id);
+        const currentIndex = filteredSongs.findIndex((song) => song.id === selectedSongId);
+        const nextIndex = (currentIndex + 1) % filteredSongs.length;
+        setSelectedSongId(filteredSongs[nextIndex].id);
         setIsPlaying(true);
-        setAccentColor(songs[nextIndex].accent)
+        setAccentColor(filteredSongs[nextIndex].accent)
     };
 
     const handlePrevSong = () => {
-        const currentIndex = songs.findIndex((song) => song.id === selectedSongId);
+        const currentIndex = filteredSongs.findIndex((song) => song.id === selectedSongId);
         if (currentTime > 3) {
             setCurrentTime(0);
             seekerRef.current.value = 0;
         } else {
-            const prevIndex = (currentIndex - 1 + songs.length) % songs.length;
-            setSelectedSongId(songs[prevIndex].id);
+            const prevIndex = (currentIndex - 1 + filteredSongs.length) % filteredSongs.length;
+            setSelectedSongId(filteredSongs[prevIndex].id);
             setIsPlaying(true);
-            setAccentColor(songs[prevIndex].accent)
+            setAccentColor(filteredSongs[prevIndex].accent)
         }
     };
 
@@ -61,7 +61,7 @@ export const MusicPlayer = () => {
     }, [selectedSong]);
 
     return (
-        <div className='flex flex-col h-full p-14 ml-16'>
+        <div className='flex flex-col h-full md:mt-12 md:ml-12 lg:mt-16 lg:ml-32'>
             {selectedSong ? (
                 <>
                     <div className="text-2xl font-semibold text-white text-left">
@@ -70,11 +70,11 @@ export const MusicPlayer = () => {
                     <div className="text-xs text-left text-gray-300">
                         {selectedSong.artist}
                     </div>
-                    <div className="text-left mt-4">
+                    <div className="text-left md:w-80 lg:w-full mt-4">
                         <img
                             src={`https://cms.samespace.com/assets/${selectedSong.cover}`}
                             alt={selectedSong.name}
-                            className="rounded-lg w-96 h-80 object-cover"
+                            className="rounded-lg w-96 md:h-64 lg:h-80 object-cover"
                         />
                     </div>
 
@@ -86,11 +86,11 @@ export const MusicPlayer = () => {
                         max="100"
                         value={currentTime}
                         onChange={handleSeekerChange}
-                        className="w-96 mt-4 custom-slider"
+                        className="lg:w-96 md:w-80 md:mt-4 lg:mt-4 custom-slider"
                     />
 
                     {/* Controls */}
-                    <div className="flex items-center justify-between gap-4 mt-5 w-96">
+                    <div className="flex items-center justify-between md:mt-2 lg:mt-2 md:w-80 lg:w-96">
                         <div className="bg-neutral-600 p-2 rounded-full cursor-pointer hover:bg-neutral-500">
                             <FaEllipsisH className="text-white" />
                         </div>
