@@ -3,7 +3,7 @@ import './App.css';
 import { User } from './Components/User';
 import { SongsList } from './Components/SongsList';
 import { MusicPlayer } from './Components/MusicPlayer';
-import { MdKeyboardArrowDown } from 'react-icons/md';  // Import the down arrow icon
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 function App() {
   const [showMusicPlayer, setShowMusicPlayer] = useState(true);
@@ -15,7 +15,7 @@ function App() {
         className="absolute top-2 right-4 bg-white text-black p-1 rounded-full z-10 md:hidden" 
         onClick={() => setShowMusicPlayer(!showMusicPlayer)}
       >
-        <MdKeyboardArrowDown /> {/* Use down arrow icon */}
+        <MdKeyboardArrowDown />
       </button>
 
       <div className="flex h-full">

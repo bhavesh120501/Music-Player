@@ -20,9 +20,6 @@ export const SongsList = () => {
         if (defaultSong) {
           setAccentColor(defaultSong.accent || '#FFFFFF');
         }
-
-        // // Filter songs based on the default tab
-        // filterSongs(activeTab, fetchedSongs);
       })
       .catch(error => console.error('Error fetching songs:', error));
   }, []);
@@ -48,7 +45,6 @@ export const SongsList = () => {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    // filterSongs(tab, songs);
   };
 
   const filterSongs = (tab, songsList) => {
