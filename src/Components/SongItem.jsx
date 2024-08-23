@@ -22,7 +22,7 @@ export const SongItem = ({song, selectedSongId, handleSongClick, formatDuration}
       </div>
       <div className="flex items-center">
         <span className="text-sm text-gray-500 text-white">
-          {formatDuration(song.url)}
+          {formatDuration(song.id)}
         </span>
       </div>
     </div>
